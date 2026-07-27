@@ -1,0 +1,51 @@
+/* Frame 600 — the colours always sit on a single row in the design. */
+.chips {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  flex-wrap: nowrap;
+  gap: 6px;
+}
+
+.chip {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 26px;
+  padding: 1px 5px;
+  border: 0.5px solid var(--color-chip-border-idle);
+  border-radius: 2px;
+  background: var(--color-white);
+  flex: none;
+}
+
+.chip.active {
+  padding: 1px 3px;
+  background: var(--color-chip-bg-active);
+  border-color: var(--color-success);
+}
+
+/*
+ * Swatches are NOT a uniform size — the design gives each colour its own box
+ * (28×28, 28×27, 23×22, 24×25, 22×22). Each SVG already declares exactly those
+ * dimensions, so letting it render at its intrinsic size keeps every chip
+ * correct without duplicating the numbers here.
+ */
+.swatch {
+  flex: none;
+}
+
+/* Height and width both come from the design; see ProductVariant.labelWidth. */
+.label {
+  font-family: var(--font-medium);
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 10px;
+  height: 10px;
+  letter-spacing: 0.6px;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  flex: none;
+}

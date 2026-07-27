@@ -1,0 +1,104 @@
+/* Frame 1424 — a category block without a label: same divider and top padding. */
+.block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+  padding-top: 15px;
+  border-top: 1px solid var(--color-gray-400);
+}
+
+/* Frame 1419 (outer row) */
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+/* Frame 1419 (info group) */
+.info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.iconBox {
+  width: 41px;
+  height: 41px;
+  border-radius: 5px;
+  background: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+
+.iconBox img {
+  width: 29px;
+  height: 29px;
+  object-fit: contain;
+}
+
+.label {
+  font-family: var(--font-medium);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.005em;
+  color: var(--color-obsidian);
+  flex-grow: 1;
+}
+
+/* Frame 1420 */
+.priceBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex: none;
+}
+
+.comparePrice {
+  font-family: var(--font-medium);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: right;
+  letter-spacing: 0.005em;
+  text-decoration: line-through;
+  color: var(--color-gray-600);
+}
+
+.freePrice {
+  font-family: var(--font-semibold);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: 0.005em;
+  color: var(--color-purple);
+}
+
+@media (min-width: 768px) {
+  .label,
+  .comparePrice,
+  .freePrice {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .label {
+    font-size: 18px;
+  }
+
+  .comparePrice,
+  .freePrice {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,57 @@
+/*
+ * Frame 1422/1423 — the product-card stepper. Deliberately separate from the
+ * review panel's QuantityStepper: different track colours, border treatment and
+ * a larger quantity label.
+ */
+.stepper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 0;
+  width: 80px;
+  border-radius: 4px;
+  flex: none;
+  /* Fills the footer band so its buttons centre against the prices (L797). */
+  align-self: stretch;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: none;
+  border-radius: 4px;
+  background: var(--color-stepper-track);
+}
+
+.button svg {
+  width: 8px;
+  height: 8px;
+  color: var(--color-stepper-icon);
+}
+
+/* qty = 0: minus reads as unavailable — white fill, light outline, pale glyph. */
+.button:disabled {
+  background: var(--color-white);
+  border: 2px solid var(--color-stepper-border-idle);
+  cursor: not-allowed;
+}
+
+.button:disabled svg {
+  color: var(--color-gray-400);
+}
+
+.quantity {
+  font-family: var(--font-medium);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: var(--color-obsidian);
+  min-width: 11px;
+  text-align: center;
+}

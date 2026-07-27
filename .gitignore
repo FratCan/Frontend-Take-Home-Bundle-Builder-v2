@@ -1,0 +1,19 @@
+node_modules
+dist
+dist-ssr
+*.local
+.DS_Store
+
+# TypeScript incremental build artefacts
+*.tsbuildinfo
+
+# Design sources: Figma CSS exports and reference screenshots.
+# The leading slash keeps these to the project root — product artwork under
+# public/ (including the .png variant thumbnails) is part of the app and stays.
+/*.txt
+/*.png
+
+# Design documentation derived from those exports (line references only make
+# sense alongside the .txt files above, which are not committed).
+/Documentation.md
+/*-layout-frame-tree.md

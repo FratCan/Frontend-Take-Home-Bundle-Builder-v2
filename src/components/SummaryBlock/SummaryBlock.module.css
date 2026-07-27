@@ -1,0 +1,218 @@
+/* Frame 1733 — satisfaction badge through to the save link. */
+.summary {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+}
+
+/* Frame 1419 */
+.pricingArea {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+/* Frame 4490 */
+.checkoutArea {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  padding-top: 10px;
+}
+
+.satisfactionRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.badge {
+  width: 78px;
+  height: 78px;
+  flex: none;
+}
+
+.pricingSummary {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.financingPill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 8px;
+  background: var(--color-purple);
+  border-radius: 3px;
+  color: var(--color-white);
+  font-family: var(--font-medium);
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: -0.05em;
+  white-space: nowrap;
+}
+
+.totalRow {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.totalCompare {
+  font-family: var(--font-medium);
+  font-weight: 400;
+  font-size: 18px;
+  text-decoration: line-through;
+  color: var(--color-gray-600);
+}
+
+.totalActive {
+  font-family: var(--font-bold);
+  font-weight: 400;
+  font-size: 24px;
+  color: var(--color-purple);
+}
+
+.savingsCallout {
+  font-family: var(--font-semibold);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: -0.056px;
+  text-align: center;
+  color: var(--color-success);
+  margin: 0;
+}
+
+.checkoutButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 13px 16px;
+  width: 100%;
+  height: 48px;
+  background: var(--color-purple);
+  border: none;
+  border-radius: 4px;
+  color: var(--color-white);
+  font-family: var(--font-tt-norms);
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.checkoutButton:active {
+  opacity: 0.9;
+}
+
+.saveLink {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--font-italic);
+  font-weight: 400;
+  font-style: italic;
+  font-size: 12px;
+  line-height: 120%;
+  letter-spacing: -0.016px;
+  /*
+   * Underline as the export specifies (L6698), sitting tight to the text.
+   * skip-ink is off so the rule stays unbroken — crossing the descenders of
+   * "my" and "system" is fine here and reads cleaner than a gapped line.
+   */
+  text-decoration-line: underline;
+  text-decoration-skip-ink: none;
+  text-underline-offset: 1px;
+  text-align: center;
+  color: var(--color-step-label);
+}
+
+@media (min-width: 768px) {
+  .saveLink {
+    font-size: 14px;
+  }
+}
+
+/* Groups only at desktop; elsewhere it must not create a flex context. */
+.topArea {
+  display: contents;
+}
+
+/* ── Desktop ─────────────────────────────────────────────────────────────── */
+@media (min-width: 1280px) {
+  /* Frame 1733 (L6309) — fixed 486px, not stretched by its parent. */
+  .summary {
+    width: 486px;
+    flex: none;
+  }
+
+  /* Frame 1420 (L6368) */
+  .topArea {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+  }
+
+  /* The badge moves into ReturnsPolicy, next to the returns copy. */
+  .badge {
+    display: none;
+  }
+
+  .satisfactionRow {
+    display: block;
+    width: 100%;
+  }
+
+  /*
+   * Frame 1727 (L6445): the financing pill and the total sit side by side.
+   * The export's 141px gap is the measured distance at 486px wide —
+   * space-between reproduces it and stays correct as the column flexes.
+   */
+  .pricingSummary {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 8px;
+  }
+
+  /* Frame 17 (L6466) — 145 x 27; the label is Gilroy-Medium, i.e. weight 500. */
+  .financingPill {
+    width: 145px;
+    height: 27px;
+    padding: 8px;
+    font-size: 16px;
+    line-height: 19px;
+    flex: none;
+  }
+
+  .totalRow {
+    justify-content: flex-end;
+  }
+
+  .totalCompare {
+    font-size: 22px;
+    line-height: 20px;
+  }
+
+  .totalActive {
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  .savingsCallout {
+    font-size: 14px;
+  }
+}

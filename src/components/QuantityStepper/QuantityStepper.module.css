@@ -1,0 +1,47 @@
+.stepper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 72px;
+  height: 28px;
+  flex: none;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: none;
+  background: var(--color-white);
+  padding: 0;
+}
+
+.button svg {
+  width: 8px;
+  height: 8px;
+  color: var(--color-icon-gray);
+}
+
+.button:disabled {
+  background: var(--color-gray-100-disabled);
+  border: 1px solid var(--color-gray-400);
+  cursor: not-allowed;
+}
+
+.button:disabled svg {
+  color: var(--color-gray-400);
+}
+
+.quantity {
+  font-family: var(--font-semibold);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--color-obsidian);
+  min-width: 10px;
+  text-align: center;
+}

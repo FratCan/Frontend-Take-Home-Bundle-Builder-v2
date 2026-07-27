@@ -1,0 +1,168 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+}
+
+.stepLabelRow {
+  display: flex;
+  justify-content: center;
+  padding: 0 15px;
+}
+
+.stepLabel {
+  font-family: var(--font-medium);
+  font-weight: 400;
+  font-size: 10px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--color-step-label);
+  flex-grow: 1;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 3px;
+  padding: 20px 15px;
+  width: 100%;
+  background: none;
+  border: none;
+  border-top: 0.5px solid var(--color-divider);
+  border-bottom: 0.5px solid var(--color-divider);
+}
+
+.titleGroup {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  flex: none;
+}
+
+.title {
+  font-family: var(--font-semibold);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
+  color: var(--color-obsidian);
+  text-align: left;
+}
+
+.counterGroup {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  flex: none;
+}
+
+.selectedCount {
+  font-family: var(--font-medium);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--color-purple);
+}
+
+.chevron {
+  width: 12px;
+  height: 12px;
+  color: var(--color-purple);
+  flex: none;
+  transition: transform 0.2s ease;
+}
+
+.chevron.collapsed {
+  transform: rotate(180deg);
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 20px 15px;
+}
+
+/* ── Tablet and up ───────────────────────────────────────────────────────── */
+@media (min-width: 768px) {
+  .section {
+    padding-top: 0;
+  }
+
+  /* Frame 538 — only the expanded step gets the tinted rounded container. */
+  .section.open {
+    padding-top: 15px;
+    background: var(--color-surface-review);
+    border-radius: 10px;
+  }
+
+  .icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .header {
+    gap: 3px;
+  }
+
+  /* Expanded step: divider on top only — the panel closes the block visually. */
+  .section.open .header {
+    border-bottom: none;
+  }
+
+  /*
+   * Collapsed steps show only the chevron at this breakpoint (Frame 1419 is
+   * 12px wide in the export). Mobile keeps the count visible.
+   */
+  .section:not(.open) .selectedCount {
+    display: none;
+  }
+}
+
+/* ── Desktop ─────────────────────────────────────────────────────────────── */
+@media (min-width: 1280px) {
+  /* Frame 550 is exactly 12px tall in all four steps (L49/L3109/L3330/L3591). */
+  .stepLabelRow {
+    height: 12px;
+    align-items: center;
+  }
+
+  .stepLabel {
+    font-size: 12px;
+    line-height: 12px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  /*
+   * Each step icon has its own box in the design: step 2 is 30x31 (L3198),
+   * step 4 renders a 17.97x20 group (L3700). Step 3's file is 32x32 and is
+   * used at its own size by choice. Per-step sizes come from data.
+   */
+  .icon {
+    width: var(--step-icon-width, 30px);
+    height: var(--step-icon-height, 30px);
+  }
+
+  .header {
+    padding: 20px 15px;
+  }
+}

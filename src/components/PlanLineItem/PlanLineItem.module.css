@@ -1,0 +1,97 @@
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  min-height: 32px;
+}
+
+.planInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 3px;
+  min-width: 0;
+}
+
+.icon {
+  width: 14px;
+  height: 17px;
+  object-fit: contain;
+  flex: none;
+}
+
+.name {
+  font-family: var(--font-bold);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: -0.002em;
+  color: #000000;
+}
+
+.nameAccent {
+  color: var(--color-purple);
+}
+
+.priceBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  flex: none;
+}
+
+.comparePrice {
+  font-family: var(--font-medium);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: right;
+  letter-spacing: 0.005em;
+  text-decoration: line-through;
+  color: var(--color-gray-600);
+}
+
+.activePrice {
+  font-family: var(--font-semibold);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: right;
+  letter-spacing: 0.005em;
+  color: var(--color-purple);
+}
+
+@media (min-width: 768px) {
+  .icon {
+    width: 20px;
+    height: 23.7px;
+  }
+
+  .name {
+    font-size: 16px;
+  }
+
+  .comparePrice,
+  .activePrice {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .icon {
+    width: 26px;
+    height: 31px;
+  }
+
+  .name {
+    font-size: 20px;
+  }
+
+  .comparePrice,
+  .activePrice {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,47 @@
+/*
+ * Frame 4500 (L6388) — the satisfaction badge beside the returns copy. This
+ * block only exists in the desktop design; mobile and tablet show the badge
+ * alone, so the wrapper stays display:none below the desktop breakpoint.
+ */
+.block {
+  display: none;
+}
+
+@media (min-width: 1280px) {
+  .block {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 25px;
+    width: 100%;
+    height: 131px;
+  }
+
+  .badge {
+    width: 131px;
+    height: 131px;
+    flex: none;
+  }
+
+  .copy {
+    font-family: var(--font-semibold);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 110%;
+    letter-spacing: 0.6px;
+    color: var(--color-text-primary);
+    flex-grow: 1;
+    margin: 0;
+  }
+
+  /*
+   * Figma flattens this into one SemiBold layer, but the reference screenshot
+   * clearly sets the body lighter than the heading, so it takes the Medium face.
+   */
+  .body {
+    display: block;
+    margin-top: 8px;
+    font-family: var(--font-medium);
+    font-weight: 400;
+  }
+}

@@ -1,0 +1,48 @@
+:root {
+  /* Brand */
+  --color-purple: #4e2fd2;
+  --color-surface-review: #edf4ff;
+  --color-success: #0aa288;
+
+  /* Text / neutrals */
+  --color-text-primary: #1f1f1f;
+  --color-text-secondary-75: rgba(31, 31, 31, 0.75);
+  --color-step-label: #484848;
+  --color-obsidian: #0b0d10;
+  --color-gray-600: #6f7882;
+  --color-gray-500: #a8b2bd;
+  --color-gray-400: #ced6de;
+  --color-gray-100-disabled: #f1f1f2;
+  --color-icon-gray: #575757;
+  --color-divider: #1f1f1f;
+  --color-white: #ffffff;
+
+  /*
+   * Product-card palette. Kept separate from the review panel on purpose: the
+   * card struck-through price is red and its active price grey, whereas the
+   * review panel uses grey and brand purple for the same roles.
+   */
+  --color-price-strike-card: #d8392b;
+  --color-price-active-card: #575757;
+  --color-stepper-track: #f0f4f7;
+  --color-stepper-border-idle: #e6ebf0;
+  --color-stepper-icon: #525963;
+  --color-chip-border-idle: #cccccc;
+  --color-chip-bg-active: rgba(29, 240, 187, 0.04);
+  --color-card-border-selected: rgba(78, 47, 210, 0.7);
+  --color-link: #0000ee;
+
+  /*
+   * One variable per Gilroy face, named as the Figma exports name them. Every
+   * rule that sets one of these also sets `font-weight: 400`, matching the
+   * export line for line. Loaded in styles/fonts.css.
+   */
+  --fallback-sans: -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-regular: 'Gilroy-Regular', var(--fallback-sans);
+  --font-medium: 'Gilroy-Medium', var(--fallback-sans);
+  --font-semibold: 'Gilroy-SemiBold', var(--fallback-sans);
+  --font-bold: 'Gilroy-Bold', var(--fallback-sans);
+  --font-italic: 'Gilroy-RegularItalic', var(--fallback-sans);
+  /* Checkout button label only, at weight 700 as the export gives it. */
+  --font-tt-norms: 'TT Norms Pro', var(--fallback-sans);
+}

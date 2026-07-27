@@ -1,0 +1,379 @@
+{
+  "page": {
+    "mobileHeading": "Let’s get started!",
+    "emptyStepLabel": "No add-ons in this step yet.",
+    "stepLabelTemplate": "Step {n} of {total}",
+    "selectedCountTemplate": "{n} selected"
+  },
+  "steps": [
+    {
+      "id": "cameras",
+      "stepNumber": 1,
+      "title": "Choose your cameras",
+      "icon": "/tablet/livestream.svg",
+      "desktopIconWidth": 30,
+      "desktopIconHeight": 30,
+      "nextLabel": "Next: Choose your plan",
+      "nextStepId": "plan",
+      "desktopNextLabel": "Next: Choose your sensors",
+      "desktopNextStepId": "sensors"
+    },
+    {
+      "id": "plan",
+      "stepNumber": 2,
+      "title": "Choose your plan",
+      "icon": "/desktop/logo_hms_new 1.svg",
+      "desktopIconWidth": 30,
+      "desktopIconHeight": 31,
+      "nextLabel": "Next: Choose your sensors",
+      "nextStepId": "sensors"
+    },
+    {
+      "id": "sensors",
+      "stepNumber": 3,
+      "title": "Choose your sensors",
+      "icon": "/desktop/Group 1417.svg",
+      "desktopIconWidth": 32,
+      "desktopIconHeight": 32,
+      "nextLabel": "Next: Add extra protection",
+      "nextStepId": "extra-protection"
+    },
+    {
+      "id": "extra-protection",
+      "stepNumber": 4,
+      "title": "Add extra protection",
+      "icon": "/desktop/Frame 1419.svg",
+      "desktopIconWidth": 30,
+      "desktopIconHeight": 30
+    }
+  ],
+  "products": [
+    {
+      "id": "wyze-cam-v4",
+      "stepId": "cameras",
+      "category": "Cameras",
+      "name": "Wyze Cam v4",
+      "description": "The clearest Wyze Cam ever made.",
+      "image": "/tablet/Wyze_Cam_V4_01.00011.svg",
+      "desktopImage": "/desktop/Wyze_Cam_V4_01.0001.png.svg",
+      "reviewThumbnail": "/tablet/Wyze_Cam_V4_01.0001.svg",
+      "badge": "Save 22%",
+      "compareAtPrice": 35.98,
+      "price": 27.98,
+      "swatchRadius": 5,
+      "imageGap": 19,
+      "desktopMediaHeight": 117.39,
+      "desktopPaddingY": 15,
+      "variants": [
+        {
+          "id": "white",
+          "label": "White",
+          "labelWidth": 30,
+          "chipWidth": 65,
+          "swatch": "/tablet/Wyze Cam v4.svg",
+          "quantity": 1,
+          "reviewThumbnail": "/tablet/Wyze_Cam_V4_01.0001.svg"
+        },
+        {
+          "id": "grey",
+          "label": "Grey",
+          "labelWidth": 24,
+          "chipWidth": 63,
+          "swatch": "/tablet/Wyze Cam v4 (1).svg",
+          "quantity": 0,
+          "reviewThumbnail": "/tablet/Wyze Cam v4 Grey.svg"
+        },
+        {
+          "id": "black",
+          "label": "Black",
+          "labelWidth": 28,
+          "chipWidth": 65,
+          "swatch": "/tablet/Wyze Cam v4 (2).svg",
+          "quantity": 0,
+          "reviewThumbnail": "/tablet/Wyze Cam v4 black.svg"
+        }
+      ],
+      "desktopContentHeight": 136,
+      "desktopPriceWidth": 112.6
+    },
+    {
+      "id": "wyze-cam-pan-v3",
+      "stepId": "cameras",
+      "category": "Cameras",
+      "name": "Wyze Cam Pan v3",
+      "description": "360° pan and 180° tilt security camera.",
+      "image": "/tablet/image 13.svg",
+      "desktopImage": "/desktop/image 13.svg",
+      "reviewThumbnail": "/tablet/image 13.1.svg",
+      "badge": "Save 12%",
+      "compareAtPrice": 28.99,
+      "price": 23.99,
+      "cardDisplay": {
+        "compareAtPrice": 39.98,
+        "price": 34.98
+      },
+      "imageGap": 19,
+      "desktopMediaHeight": 146.1,
+      "desktopPaddingY": 15,
+      "variants": [
+        {
+          "id": "white",
+          "label": "White",
+          "labelWidth": 30,
+          "chipWidth": 65,
+          "swatch": "/tablet/image 18.svg",
+          "quantity": 2,
+          "reviewThumbnail": "/tablet/image 13.1.svg"
+        },
+        {
+          "id": "black",
+          "label": "Black",
+          "labelWidth": 28,
+          "chipWidth": 65,
+          "swatch": "/tablet/image 19.svg",
+          "quantity": 0,
+          "reviewThumbnail": "/tablet/Wyze Cam Pan v3 — Black.svg"
+        }
+      ],
+      "desktopContentHeight": 136,
+      "desktopPriceWidth": 112.6
+    },
+    {
+      "id": "wyze-cam-floodlight-v2",
+      "stepId": "cameras",
+      "category": "Cameras",
+      "name": "Wyze Cam Floodlight v2",
+      "description": "2K floodlight camera with a 160° wide-angle view for your garage.",
+      "image": "/tablet/image 16.svg",
+      "desktopImage": "/desktop/image 16.svg",
+      "reviewThumbnail": "/tablet/image 16.svg",
+      "badge": "Save 22%",
+      "compareAtPrice": 89.98,
+      "price": 69.98,
+      "desktopMediaHeight": 152.1,
+      "variants": [
+        {
+          "id": "white",
+          "label": "White",
+          "labelWidth": 30,
+          "chipWidth": 65,
+          "swatch": "/desktop/image 16.svg",
+          "swatchWidth": 24,
+          "swatchHeight": 25,
+          "quantity": 0,
+          "reviewThumbnail": "/tablet/image 16.svg"
+        },
+        {
+          "id": "black",
+          "label": "Black",
+          "labelWidth": 28,
+          "chipWidth": 65,
+          "swatch": "/tablet/image 17.svg",
+          "quantity": 0
+        }
+      ],
+      "desktopDescriptionSize": 12,
+      "learnMoreOnOwnLine": true,
+      "desktopContentHeight": 144,
+      "desktopDescriptionLines": [
+        "2K floodlight camera with a 160°",
+        "wide-angle view for your garage."
+      ],
+      "desktopTitleSize": 16,
+      "desktopPriceWidth": 76.6
+    },
+    {
+      "id": "wyze-duo-cam-doorbell",
+      "stepId": "cameras",
+      "category": "Cameras",
+      "name": "Wyze Duo Cam Doorbell",
+      "description": "Two cameras. Two views. Double the porch protection.",
+      "image": "/tablet/image 110.svg",
+      "desktopImage": "/desktop/image 110.svg",
+      "reviewThumbnail": "/tablet/image 110.svg",
+      "compareAtPrice": null,
+      "price": 69.98,
+      "desktopMediaHeight": 152.1,
+      "learnMoreOnOwnLine": true,
+      "variants": [
+        {
+          "id": "default",
+          "label": null,
+          "labelWidth": null,
+          "swatch": null,
+          "quantity": 0
+        }
+      ],
+      "desktopDescriptionLines": [
+        "Two cameras. Two views.",
+        "Double the porch protection."
+      ],
+      "desktopContentHeight": 136,
+      "desktopPriceWidth": 76.6
+    },
+    {
+      "id": "wyze-battery-cam-pro",
+      "stepId": "cameras",
+      "category": "Cameras",
+      "name": "Wyze Battery Cam Pro",
+      "description": "Protect anywhere. See everything in 2.5K HDR. No power outlet or electrician needed.",
+      "image": "/tablet/image 112.svg",
+      "desktopImage": "/desktop/image 112.svg",
+      "reviewThumbnail": "/tablet/image 112.svg",
+      "compareAtPrice": null,
+      "price": 89.98,
+      "desktopMediaHeight": 101,
+      "variants": [
+        {
+          "id": "white",
+          "label": "White",
+          "labelWidth": 30,
+          "chipWidth": 65,
+          "swatch": "/tablet/image 112 (1).svg",
+          "quantity": 0
+        },
+        {
+          "id": "black",
+          "label": "Black",
+          "labelWidth": 28,
+          "chipWidth": 65,
+          "swatch": "/tablet/image 113.svg",
+          "quantity": 0
+        }
+      ],
+      "desktopContentHeight": 170,
+      "desktopPriceWidth": 79
+    },
+    {
+      "id": "cam-unlimited-plan",
+      "stepId": "plan",
+      "category": "Home monitoring plan",
+      "name": "Cam",
+      "nameAccent": "Unlimited",
+      "selection": "toggle",
+      "reviewLayout": "plan",
+      "priceSuffix": "/mo",
+      "image": "/mobil-ui/Layer_1.svg",
+      "desktopImage": "/mobil-ui/Layer_1.svg",
+      "reviewThumbnail": "/mobil-ui/Layer_1.svg",
+      "compareAtPrice": 12.99,
+      "price": 9.99,
+      "desktopMediaHeight": 101,
+      "desktopContentHeight": 136,
+      "desktopPriceWidth": 112.6,
+      "variants": [
+        {
+          "id": "default",
+          "label": null,
+          "labelWidth": null,
+          "swatch": null,
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "wyze-sense-motion-sensor",
+      "stepId": "sensors",
+      "category": "Sensors",
+      "name": "Wyze Sense Motion Sensor",
+      "image": "/mobil-ui/Wyze Sense Motion Sensor.svg",
+      "desktopImage": "/mobil-ui/Wyze Sense Motion Sensor.svg",
+      "reviewThumbnail": "/mobil-ui/Wyze Sense Motion Sensor.svg",
+      "compareAtPrice": null,
+      "price": 29.99,
+      "desktopMediaHeight": 101,
+      "desktopContentHeight": 136,
+      "desktopPriceWidth": 112.6,
+      "variants": [
+        {
+          "id": "default",
+          "label": null,
+          "labelWidth": null,
+          "swatch": null,
+          "quantity": 2
+        }
+      ]
+    },
+    {
+      "id": "wyze-sense-hub",
+      "stepId": "sensors",
+      "category": "Sensors",
+      "name": "Wyze Sense Hub (Required)",
+      "image": "/mobil-ui/Wyze Sense Hub.svg",
+      "desktopImage": "/mobil-ui/Wyze Sense Hub.svg",
+      "reviewThumbnail": "/mobil-ui/Wyze Sense Hub.svg",
+      "compareAtPrice": 29.92,
+      "price": 0,
+      "priceDisplay": "free",
+      "locked": true,
+      "desktopMediaHeight": 101,
+      "desktopContentHeight": 136,
+      "desktopPriceWidth": 112.6,
+      "variants": [
+        {
+          "id": "default",
+          "label": null,
+          "labelWidth": null,
+          "swatch": null,
+          "quantity": 1
+        }
+      ]
+    }
+  ],
+  "extras": [
+    {
+      "id": "wyze-microsd-card",
+      "category": "Accessories",
+      "layout": "product",
+      "name": "Wyze MicroSD Card (256GB)",
+      "image": "/mobil-ui/Black 256GB microSD card with the Wyze logo on it. Includes Class 10 and UHS-3 (U3) labelling.svg",
+      "quantity": 2,
+      "compareAtPrice": null,
+      "price": 20.98,
+      "priceDisplay": "flat",
+      "locked": false
+    }
+  ],
+  "shipping": {
+    "label": "Fast Shipping",
+    "icon": "/mobil-ui/Wyze Sense Keypad.svg",
+    "compareAtPrice": 5.99,
+    "price": 0,
+    "freeLabel": "FREE"
+  },
+  "review": {
+    "stepLabel": "Review",
+    "heading": "Your security system",
+    "subheading": "Review your personalized protection system designed to keep what matters most safe.",
+    "categoryOrder": [
+      "Cameras",
+      "Sensors",
+      "Accessories",
+      "Home monitoring plan"
+    ],
+    "categoryLabels": {
+      "Home monitoring plan": {
+        "wide": "Plan"
+      }
+    },
+    "returns": {
+      "heading": "30-day hassle-free returns",
+      "body": "If you’re not totally in love with the product, we will refund you 100%.",
+      "badge": "/desktop/Satisfaction Badge-05 1.svg",
+      "mobileBadge": "/mobil-ui/Satisfaction Badge-05 1.svg"
+    },
+    "financing": {
+      "months": 12,
+      "template": "as low as {amount}/mo"
+    },
+    "savingsTemplate": "Congrats! You’re saving {amount} on your security bundle!",
+    "checkout": {
+      "label": "Checkout",
+      "confirmedLabel": "Order confirmed!"
+    },
+    "save": {
+      "label": "Save my system for later",
+      "savedLabel": "Saved!"
+    }
+  }
+}

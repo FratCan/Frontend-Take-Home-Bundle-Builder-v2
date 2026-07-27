@@ -1,0 +1,313 @@
+/* Frame 543/544/545/546/547 — horizontal card: image left, content right. */
+.card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 13px;
+  padding: 11px;
+  background: var(--color-white);
+  border: 2px solid transparent;
+  border-radius: 10px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+
+/* A card holding at least one unit is outlined in brand purple. */
+.card.selected {
+  border-color: var(--color-card-border-selected);
+}
+
+.media {
+  position: relative;
+  flex: none;
+  align-self: center;
+}
+
+/*
+ * <picture> is only a source selector — take it out of the box tree so the
+ * <img> itself becomes the flex child of .media and can be sized against it.
+ * Without this the image keeps its intrinsic size and overflows the card.
+ */
+.media picture {
+  display: contents;
+}
+
+.image {
+  display: block;
+  width: 101px;
+  height: auto;
+  border-radius: 5px;
+}
+
+/* Frame 1420 — discount pill, pinned to the image's top-left corner. */
+.badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px 6px;
+  height: 19px;
+  background: var(--color-purple);
+  border-radius: 10px;
+  font-family: var(--font-semibold);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: var(--color-white);
+  white-space: nowrap;
+}
+
+/* Frame 547/549 */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Frame 545 */
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
+  font-family: var(--font-semibold);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0.6px;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+/* Matches the two-tone treatment the review row gives "Cam Unlimited". */
+.titleAccent {
+  color: var(--color-purple);
+}
+
+/*
+ * Subscription card: a single add/remove control instead of a stepper. Styled
+ * after the "Next: …" button, since the design has no card of this kind.
+ */
+.toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 28px;
+  padding: 0 16px;
+  background: none;
+  border: 1px solid var(--color-purple);
+  border-radius: 4px;
+  font-family: var(--font-semibold);
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--color-purple);
+  white-space: nowrap;
+  flex: none;
+}
+
+.toggle.toggleOn {
+  background: var(--color-purple);
+  color: var(--color-white);
+}
+
+.description {
+  font-family: var(--font-medium);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 130%;
+  letter-spacing: 0.6px;
+  color: var(--color-text-secondary-75);
+  margin: 0;
+}
+
+.learnMore {
+  color: var(--color-link);
+  text-decoration: underline;
+  white-space: nowrap;
+}
+
+/* Suppressed below the desktop breakpoint so the copy flows as one paragraph. */
+.desktopBreak {
+  display: none;
+}
+
+/* Frame 546/548 — stepper left, price right, always on one line. */
+.footer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 10px;
+  width: 100%;
+}
+
+/* Frame 577 */
+.priceBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 3px;
+}
+
+/*
+ * Card prices use their own palette: struck-through in red, active in grey.
+ * The review panel uses grey/purple instead — do not merge these.
+ */
+/*
+ * Prices never wrap: the design's footer is exactly 80px stepper + 10px gap +
+ * 112.6px price block, so a substitute font one or two pixels wider would
+ * otherwise push the amounts onto a second line and break the row.
+ */
+.comparePrice {
+  font-family: var(--font-regular);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0.6px;
+  text-align: right;
+  text-decoration: line-through;
+  color: var(--color-price-strike-card);
+  white-space: nowrap;
+  flex: none;
+}
+
+.activePrice {
+  font-family: var(--font-regular);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0.6px;
+  text-align: right;
+  color: var(--color-price-active-card);
+  white-space: nowrap;
+  flex: none;
+}
+
+/* ── Desktop: the card turns vertical — image on top, text below ─────────── */
+@media (min-width: 1280px) {
+  /*
+   * min-height, not height: the design's 331.1px assumes Gilroy's line counts.
+   * A fixed height makes any extra line spill out of the card, so the box grows
+   * instead — and the grid stretches every card in the row to match.
+   */
+  .card {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: var(--desktop-padding-y, 11px) 11px;
+    min-height: 331.1px;
+  }
+
+  /* Image box height is per-card design data; the art is centred inside it. */
+  .media {
+    width: 100%;
+    height: var(--desktop-media-height);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .image {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  /* Frame 546/548 — 202.6 x 28, stepper pinned left and prices pinned right. */
+  .footer {
+    height: 28px;
+    gap: 10px;
+  }
+
+  /*
+   * Frame 577: the two prices sit side by side, in a box whose width is fixed
+   * by the design. That width is what makes the footer gap come out at the
+   * export's 10px / 46px — the gap itself is a result, not a setting.
+   * The block is right-aligned, so wider substitute-font text grows leftwards
+   * into the empty middle rather than pushing the stepper.
+   */
+  .priceBlock {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 3px;
+    flex: none;
+    width: var(--desktop-price-width);
+    /*
+     * Both the stepper and this block stretch to the footer's 28px and centre
+     * their contents (L797 / L966). Without the stretch the prices sit on the
+     * footer's baseline while the stepper centres its 20px buttons, leaving
+     * the two visibly off by the stepper's 4px padding.
+     */
+    align-self: stretch;
+  }
+
+  /*
+   * The subscription card is not in the design, and its "/mo" prices are far
+   * wider than a plain amount — side by side they overrun the fixed price box
+   * and run under the Add button. So this card stacks them and lets the footer
+   * find its own height.
+   */
+  .footerToggle {
+    height: auto;
+    align-items: center;
+  }
+
+  .footerToggle .priceBlock {
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    width: auto;
+    gap: 3px;
+    align-self: auto;
+  }
+
+  /*
+   * The text column has a design height per card (Frame 547/549/550).
+   * min-height rather than height: the box is never smaller than the design
+   * says, but a substitute font that needs one extra line grows instead of
+   * clipping.
+   */
+  .content {
+    width: 100%;
+    min-height: var(--desktop-content-height);
+  }
+
+  /* Only the sizes change here; the faces are set by the base rules. */
+  .title {
+    font-size: var(--desktop-title-size, 18px);
+  }
+
+  .description {
+    font-size: var(--desktop-description-size, 14px);
+  }
+
+  /* Only breaks at desktop — see Product.desktopDescriptionLines. */
+  .desktopBreak {
+    display: inline;
+  }
+
+  /*
+   * Measured against the real Gilroy metrics, the second line of both scripted
+   * descriptions comes to ~203.8px against a 202.6px column — about 1.2px too
+   * wide, which is enough to wrap it and turn two lines into three. Holding the
+   * line together lets that sliver sit in the card's own 11px padding, so the
+   * design's type spec stays untouched and nothing spills past the card.
+   */
+  .forcedLine {
+    white-space: nowrap;
+  }
+}

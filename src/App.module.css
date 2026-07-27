@@ -1,0 +1,141 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 31px;
+  max-width: 430px;
+  margin: 0 auto;
+  background: var(--color-white);
+  min-height: 100vh;
+}
+
+.heading {
+  width: 100%;
+  padding: 0 20px;
+  font-family: var(--font-bold);
+  font-weight: 400;
+  font-size: 31.875px;
+  line-height: 110%;
+  letter-spacing: -0.064px;
+  text-align: center;
+  color: var(--color-text-primary);
+  margin: 0 0 20px;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* ── Tablet and up: builder left, review right ───────────────────────────── */
+@media (min-width: 768px) {
+  /*
+   * The tablet design is a fixed 1244px page (24px padding + 768px builder +
+   * 29px gutter + 399px review + 24px padding). Rather than reflow it, the
+   * page keeps that exact width and is scaled down to fit narrower screens, so
+   * an iPad shows the design's own proportions — two cards per row, a 101px
+   * card image — just smaller. `zoom` is used because, unlike `transform`, it
+   * scales the layout box itself and leaves no leftover height.
+   *
+   * Scaling runs in ~5% steps because CSS cannot divide the viewport width by
+   * a length to produce the ratio directly. Each step uses the ratio of its
+   * own lower bound, so the page is never wider than the screen.
+   */
+  .page {
+    width: 1244px;
+    max-width: none;
+    box-sizing: border-box;
+    padding: 49px 24px 40px;
+    align-items: stretch;
+    min-height: 0;
+    zoom: 0.617;
+  }
+
+  .heading {
+    /* The tablet frame opens straight at the accordion. */
+    display: none;
+  }
+
+  .body {
+    display: grid;
+    grid-template-columns: 768fr 399fr;
+    gap: 29px;
+    align-items: start;
+  }
+}
+
+@media (min-width: 820px) {
+  .page {
+    zoom: 0.659;
+  }
+}
+
+@media (min-width: 880px) {
+  .page {
+    zoom: 0.707;
+  }
+}
+
+@media (min-width: 940px) {
+  .page {
+    zoom: 0.755;
+  }
+}
+
+@media (min-width: 1000px) {
+  .page {
+    zoom: 0.803;
+  }
+}
+
+@media (min-width: 1060px) {
+  .page {
+    zoom: 0.852;
+  }
+}
+
+@media (min-width: 1120px) {
+  .page {
+    zoom: 0.9;
+  }
+}
+
+@media (min-width: 1180px) {
+  .page {
+    zoom: 0.948;
+  }
+}
+
+/* At or above the tablet design's own width, render it 1:1. */
+@media (min-width: 1244px) {
+  .page {
+    zoom: 1;
+  }
+}
+
+/* ── Desktop: single column, review stacked under the builder ────────────── */
+@media (min-width: 1280px) {
+  /*
+   * The desktop frame is one 1213px column (L10 / L3900 both sit at
+   * left: 105px). No scaling is needed — the design fits natively — so the
+   * tablet's zoom and fixed 1244px width are both dropped here.
+   */
+  .page {
+    width: auto;
+    max-width: 1213px;
+    padding: 49.32px 0 40px;
+    zoom: 1;
+  }
+
+  /*
+   * Builder above, review below. The 33.58px gutter is the gap between the
+   * builder's bottom edge (49.32 + 803.1 = 852.42) and the review's top
+   * (886px).
+   */
+  .body {
+    display: flex;
+    flex-direction: column;
+    gap: 33.58px;
+  }
+}
