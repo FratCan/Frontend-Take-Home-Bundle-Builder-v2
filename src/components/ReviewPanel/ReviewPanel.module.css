@@ -17,6 +17,8 @@
   font-family: var(--font-medium);
   font-weight: 400;
   font-size: 10px;
+  /* "identical to box height" in the export — `normal` adds ~2.6px here. */
+  line-height: 100%;
   letter-spacing: 1.6px;
   text-transform: uppercase;
   color: var(--color-step-label);
@@ -36,16 +38,20 @@
   flex-direction: column;
   gap: 5px;
   /*
-   * The card's 10px gap alone leaves the first category's rule sitting right on
-   * the subheading's descenders. A little extra drops it clear of the copy.
+   * The export puts this block and the category list in one auto-layout with a
+   * 10px gap. Here they sit inside the items column, which is a plain block, so
+   * the gap has to be a margin — without it the first category's rule lands
+   * straight on the subheading's descenders.
    */
-  padding-bottom: 6px;
+  margin-bottom: 10px;
 }
 
 .heading {
   font-family: var(--font-semibold);
   font-weight: 400;
   font-size: 22px;
+  /* Both exports box this at 100% — "identical to box height". */
+  line-height: 100%;
   letter-spacing: 0.6px;
   color: var(--color-text-primary);
   margin: 0;
