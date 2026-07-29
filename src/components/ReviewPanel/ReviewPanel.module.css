@@ -35,6 +35,11 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
+  /*
+   * The card's 10px gap alone leaves the first category's rule sitting right on
+   * the subheading's descenders. A little extra drops it clear of the copy.
+   */
+  padding-bottom: 6px;
 }
 
 .heading {
