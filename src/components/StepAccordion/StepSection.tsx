@@ -26,11 +26,11 @@ export function StepSection({
       className={`${styles.section} ${isOpen ? styles.open : ''}`}
       style={
         {
-          '--step-icon-width': step.desktopIconWidth
-            ? `${step.desktopIconWidth}px`
+          '--step-icon-width': step.stepIconWidth
+            ? `${step.stepIconWidth}px`
             : undefined,
-          '--step-icon-height': step.desktopIconHeight
-            ? `${step.desktopIconHeight}px`
+          '--step-icon-height': step.stepIconHeight
+            ? `${step.stepIconHeight}px`
             : undefined,
         } as CSSProperties
       }

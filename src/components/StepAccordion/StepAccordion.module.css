@@ -16,7 +16,11 @@
 
 .cardGrid {
   display: grid;
-  grid-template-columns: 1fr;
+  /*
+   * minmax(0, …) rather than a bare 1fr: an auto minimum lets a track grow to
+   * its widest card and push the grid past the page, clipping the price column.
+   */
+  grid-template-columns: minmax(0, 1fr);
   gap: 15px;
   width: 100%;
 }
@@ -46,35 +50,10 @@
   text-align: center;
 }
 
-/*
- * Two cards per row, exactly as the design lays them out. Below the ideal
- * 1196px the columns scale down, and the card absorbs that by letting its
- * image shrink — the text column and colour chips keep their design widths.
- */
+/* ── Tablet: all five cards on one row (Frame 4492, L361) ────────────────── */
 @media (min-width: 768px) {
   .cardGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  /* An odd final card keeps one column's width and centres itself. */
-  .cardGrid > :last-child:nth-child(odd) {
-    grid-column: 1 / -1;
-    justify-self: center;
-    width: calc(50% - 7.5px);
-  }
-}
-
-/* ── Desktop: all five cards on one row (Frame 4492, L361) ───────────────── */
-@media (min-width: 1280px) {
-  .cardGrid {
-    grid-template-columns: repeat(5, 1fr);
-  }
-
-  /* Undo the tablet rule that centres a lone trailing card. */
-  .cardGrid > :last-child:nth-child(odd) {
-    grid-column: auto;
-    justify-self: stretch;
-    width: auto;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 
   /*
@@ -87,5 +66,29 @@
     gap: 13px;
     width: 100%;
     min-height: 803.1px;
+  }
+}
+
+/*
+ * ── Desktop: the builder shares the row with the review panel, so its column
+ * is only 768px wide and the cards drop to two per row. Below the ideal width
+ * the columns scale down and the card absorbs it by letting its image shrink —
+ * the text column and colour chips keep their design widths.
+ */
+@media (min-width: 1280px) {
+  .cardGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* An odd final card keeps one column's width and centres itself. */
+  .cardGrid > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 7.5px);
+  }
+
+  /* Frame 8234 — 768 x 978. */
+  .accordion {
+    min-height: 978px;
   }
 }

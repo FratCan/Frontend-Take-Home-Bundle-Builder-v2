@@ -95,49 +95,20 @@
   padding: 20px 15px;
 }
 
-/* ── Tablet and up ───────────────────────────────────────────────────────── */
+/* ── Tablet: the wide header, at the stacked frame's sizes ───────────────── */
 @media (min-width: 768px) {
   .section {
     padding-top: 0;
   }
 
-  /* Frame 538 — only the expanded step gets the tinted rounded container. */
+  /* Only the expanded step gets the tinted rounded container. */
   .section.open {
     padding-top: 15px;
     background: var(--color-surface-review);
     border-radius: 10px;
   }
 
-  .icon {
-    width: 26px;
-    height: 26px;
-  }
-
-  .title {
-    font-size: 22px;
-  }
-
-  .header {
-    gap: 3px;
-  }
-
-  /* Expanded step: divider on top only — the panel closes the block visually. */
-  .section.open .header {
-    border-bottom: none;
-  }
-
-  /*
-   * Collapsed steps show only the chevron at this breakpoint (Frame 1419 is
-   * 12px wide in the export). Mobile keeps the count visible.
-   */
-  .section:not(.open) .selectedCount {
-    display: none;
-  }
-}
-
-/* ── Desktop ─────────────────────────────────────────────────────────────── */
-@media (min-width: 1280px) {
-  /* Frame 550 is exactly 12px tall in all four steps (L49/L3109/L3330/L3591). */
+  /* Frame 550 is 12px tall from the tablet frame up; only mobile uses 10px. */
   .stepLabelRow {
     height: 12px;
     align-items: center;
@@ -148,21 +119,45 @@
     line-height: 12px;
   }
 
-  .title {
-    font-size: 28px;
-  }
-
   /*
-   * Each step icon has its own box in the design: step 2 is 30x31 (L3198),
-   * step 4 renders a 17.97x20 group (L3700). Step 3's file is 32x32 and is
-   * used at its own size by choice. Per-step sizes come from data.
+   * Each step has its own icon box in the design, so the size comes from data.
    */
   .icon {
     width: var(--step-icon-width, 30px);
     height: var(--step-icon-height, 30px);
   }
 
+  .title {
+    font-size: 28px;
+  }
+
   .header {
+    gap: 3px;
     padding: 20px 15px;
+  }
+
+  /* Expanded step: divider on top only — the panel closes the block visually. */
+  .section.open .header {
+    border-bottom: none;
+  }
+
+  /*
+   * Collapsed steps show only the chevron on the wide frames; mobile keeps the
+   * count visible.
+   */
+  .section:not(.open) .selectedCount {
+    display: none;
+  }
+}
+
+/* ── Desktop: the narrower builder column dials the header back down ─────── */
+@media (min-width: 1280px) {
+  .icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  .title {
+    font-size: 22px;
   }
 }

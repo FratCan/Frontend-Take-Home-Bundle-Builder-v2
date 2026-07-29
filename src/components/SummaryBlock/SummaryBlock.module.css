@@ -144,13 +144,13 @@
   }
 }
 
-/* Groups only at desktop; elsewhere it must not create a flex context. */
+/* Groups only on the tablet frame; elsewhere it must not create a flex context. */
 .topArea {
   display: contents;
 }
 
-/* ── Desktop ─────────────────────────────────────────────────────────────── */
-@media (min-width: 1280px) {
+/* ── Tablet: the wide, two-column summary ────────────────────────────────── */
+@media (min-width: 768px) {
   /* Frame 1733 (L6309) — fixed 486px, not stretched by its parent. */
   .summary {
     width: 486px;
@@ -214,5 +214,61 @@
 
   .savingsCallout {
     font-size: 14px;
+  }
+}
+
+/* ── Desktop: back to the narrow stacked column ──────────────────────────── */
+@media (min-width: 1280px) {
+  .summary {
+    width: auto;
+    flex: initial;
+  }
+
+  .topArea {
+    display: contents;
+  }
+
+  /* No returns block here, so the badge sits with the summary again. */
+  .badge {
+    display: block;
+  }
+
+  .satisfactionRow {
+    display: flex;
+  }
+
+  .pricingSummary {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    width: auto;
+    gap: 8px;
+  }
+
+  .financingPill {
+    width: auto;
+    height: auto;
+    padding: 5px 8px;
+    font-size: 12px;
+    line-height: normal;
+    flex: initial;
+  }
+
+  .totalRow {
+    justify-content: flex-start;
+  }
+
+  .totalCompare {
+    font-size: 18px;
+    line-height: normal;
+  }
+
+  .totalActive {
+    font-size: 24px;
+    line-height: normal;
+  }
+
+  .savingsCallout {
+    font-size: 12px;
   }
 }

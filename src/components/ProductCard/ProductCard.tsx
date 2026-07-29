@@ -36,33 +36,34 @@ export function ProductCard({
       style={
         {
           ...(product.imageGap ? { gap: `${product.imageGap}px` } : null),
-          ...(product.desktopMediaHeight
-            ? { '--desktop-media-height': `${product.desktopMediaHeight}px` }
+          ...(product.cardMediaHeight
+            ? { '--card-media-height': `${product.cardMediaHeight}px` }
             : null),
-          ...(product.desktopPaddingY
-            ? { '--desktop-padding-y': `${product.desktopPaddingY}px` }
+          ...(product.cardPaddingY
+            ? { '--card-padding-y': `${product.cardPaddingY}px` }
             : null),
-          ...(product.desktopDescriptionSize
-            ? { '--desktop-description-size': `${product.desktopDescriptionSize}px` }
+          ...(product.cardDescriptionSize
+            ? { '--card-description-size': `${product.cardDescriptionSize}px` }
             : null),
-          ...(product.desktopContentHeight
-            ? { '--desktop-content-height': `${product.desktopContentHeight}px` }
+          ...(product.cardContentHeight
+            ? { '--card-content-height': `${product.cardContentHeight}px` }
             : null),
-          ...(product.desktopTitleSize
-            ? { '--desktop-title-size': `${product.desktopTitleSize}px` }
+          ...(product.cardTitleSize
+            ? { '--card-title-size': `${product.cardTitleSize}px` }
             : null),
-          ...(product.desktopPriceWidth
-            ? { '--desktop-price-width': `${product.desktopPriceWidth}px` }
-            : null),
-          ...(product.desktopDescriptionWeight
-            ? { '--desktop-description-weight': `${product.desktopDescriptionWeight}` }
+          ...(product.cardPriceWidth
+            ? { '--card-price-width': `${product.cardPriceWidth}px` }
             : null),
         } as CSSProperties
       }
     >
       <div className={styles.media}>
         <picture>
-          <source media="(min-width: 1280px)" srcSet={encodeURI(product.desktopImage)} />
+          {/* Only the tablet range stands the card up and needs the portrait crop. */}
+          <source
+            media="(min-width: 768px) and (max-width: 1279px)"
+            srcSet={encodeURI(product.tabletImage)}
+          />
           <img className={styles.image} src={product.image} alt={product.name} />
         </picture>
         {product.badge && <span className={styles.badge}>{product.badge}</span>}
@@ -78,12 +79,12 @@ export function ProductCard({
           </h3>
           {product.description && (
             <p className={styles.description}>
-              {product.desktopDescriptionLines
-                ? product.desktopDescriptionLines.map((line, index) => (
+              {product.scriptedDescriptionLines
+                ? product.scriptedDescriptionLines.map((line, index) => (
                     <Fragment key={line}>
-                      {index > 0 && <br className={styles.desktopBreak} />}
+                      {index > 0 && <br className={styles.scriptedBreak} />}
                       <span className={styles.forcedLine}>{line}</span>
-                      {index < product.desktopDescriptionLines!.length - 1 && ' '}
+                      {index < product.scriptedDescriptionLines!.length - 1 && ' '}
                     </Fragment>
                   ))
                 : product.description}

@@ -35,7 +35,7 @@ export function SummaryBlock({
   return (
     <div className={styles.summary}>
       <div className={styles.pricingArea}>
-        {/* display:contents below desktop, so it only groups at >=1280px. */}
+        {/* display:contents elsewhere, so it only groups on the tablet frame. */}
         <div className={styles.topArea}>
           <ReturnsPolicy />
           <div className={styles.satisfactionRow}>

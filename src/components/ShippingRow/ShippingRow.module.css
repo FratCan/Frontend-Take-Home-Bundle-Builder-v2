@@ -85,14 +85,6 @@
 }
 
 @media (min-width: 768px) {
-  .label,
-  .comparePrice,
-  .freePrice {
-    font-size: 14px;
-  }
-}
-
-@media (min-width: 1280px) {
   .label {
     font-size: 18px;
   }
@@ -100,5 +92,13 @@
   .comparePrice,
   .freePrice {
     font-size: 16px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .label,
+  .comparePrice,
+  .freePrice {
+    font-size: 14px;
   }
 }

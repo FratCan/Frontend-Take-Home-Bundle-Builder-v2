@@ -63,66 +63,38 @@
 }
 
 /*
- * Tablet reuses the mobile panel verbatim (the export literally nests the
- * 390px mobile frame inside the 399px column) — only a few type sizes grow.
+ * The desktop column reuses the mobile panel almost verbatim (the export
+ * literally nests the 390px mobile frame inside the 399px column); only the
+ * tablet frame, where the panel spans the page, rebuilds it.
  */
+/* ── Tablet: the panel spans the page and splits in two ──────────────────── */
 @media (min-width: 768px) {
-  .section {
-    border-radius: 10px;
-  }
-
-  .stepLabel {
-    font-size: 12px;
-  }
-
-  .subheading {
-    font-size: 14px;
-  }
-}
-
-/* Below desktop the two "columns" are just a single stacked flow. */
-.columns {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 100%;
-}
-
-.itemsColumn {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  min-width: 0;
-}
-
-/* ── Desktop ─────────────────────────────────────────────────────────────── */
-@media (min-width: 1280px) {
-  /* The panel has no "REVIEW" step label in the desktop design. */
+  /* The stacked frame drops the REVIEW step label above the panel. */
   .stepLabelRow {
     display: none;
   }
 
   /*
-   * Frame 1736 (L3900) — 1213 x 658, made of its 15px top padding plus the
-   * 643px body (20 + 592 columns + 31). min-height keeps it from clipping if
-   * a line item needs more room.
+   * Frame 1736 — 1213 x 658, made of its 15px top padding plus the 643px body
+   * (20 + 592 columns + 31). min-height keeps it from clipping if a line item
+   * needs more room.
    */
   .section {
     width: 100%;
     min-height: 658px;
+    border-radius: 10px;
   }
 
-  /* iPhone 13 & 14 - 30 (L3919) centres its content. */
   .card {
     padding: 20px 20px 31px;
     align-items: center;
   }
 
   /*
-   * Frame 4499 (L3941): 1173px wide, contents centred. Both columns are
-   * flex: none with fixed widths — 552px of line items and 486px of summary —
-   * so the 83px left over sits as margin on either side. Fluid `fr` columns
-   * would stretch them to 596/525 and miss the design by ~44px each.
+   * Frame 4499: 1173px wide, contents centred. Both columns are flex: none with
+   * fixed widths — 552px of line items and 486px of summary — so the 83px left
+   * over sits as margin on either side. Fluid columns would stretch them to
+   * 596/525 and miss the design by ~44px each.
    */
   .columns {
     display: flex;
@@ -144,5 +116,47 @@
 
   .subheading {
     font-size: 16px;
+  }
+}
+
+/* ── Desktop: the panel narrows into the right-hand column ───────────────── */
+@media (min-width: 1280px) {
+  /* The side-by-side frame puts the REVIEW label back above the panel. */
+  .stepLabelRow {
+    display: flex;
+  }
+
+  .stepLabel {
+    font-size: 12px;
+  }
+
+  .section {
+    min-height: 0;
+  }
+
+  .card {
+    align-items: flex-start;
+  }
+
+  /* One column again — the summary sits under the line items. */
+  .columns {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 10px;
+    min-height: 0;
+  }
+
+  .itemsColumn {
+    width: auto;
+    flex: initial;
+  }
+
+  .heading {
+    font-size: 22px;
+  }
+
+  .subheading {
+    font-size: 14px;
   }
 }

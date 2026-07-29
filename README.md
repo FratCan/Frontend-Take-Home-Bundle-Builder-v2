@@ -1,7 +1,8 @@
 # Bundle Builder
 
-A multi-step security-system bundle builder: a four-step accordion on the left,
-a live review panel that reflects the configured system on the right.
+A multi-step security-system bundle builder: a four-step accordion, and a live
+review panel that reflects the configured system. The two sit side by side on a
+desktop screen and stack on narrower ones — see [Responsive](#responsive).
 
 React · TypeScript · Vite · CSS Modules, with a small Express API serving the
 catalogue.
@@ -74,9 +75,9 @@ review rows, step counters and totals all follow automatically.
 
 | Breakpoint | Layout |
 | --- | --- |
-| `< 768px` | Single column, accordion above the review panel |
-| `768–1279px` | Two columns; the page scales proportionally so an iPad shows the design's own proportions |
-| `≥ 1280px` | Single 1213px column — builder above, review panel below with its own two-column split |
+| `< 768px` | Single column, accordion above the review panel; cards lie horizontal |
+| `768–1279px` | Single 1213px column — builder above, review panel below with its own two-column split; five stood-up cards per row. The page scales proportionally so an iPad shows the design's own proportions |
+| `≥ 1280px` | Two columns — builder left (768px), review panel right (399px); cards lie horizontal, two per row |
 
 Layouts were built against Figma CSS exports; the exports and the working notes
 derived from them are kept out of the repository.
@@ -120,11 +121,11 @@ face is therefore registered as its own `@font-face` family carrying weight 400,
 so the CSS reads exactly as the export does — `font-family: 'Gilroy-SemiBold';
 font-weight: 400` — instead of collapsing the faces and re-deriving a weight.
 
-**Tablet scales rather than reflows.** The tablet design is a fixed 1244px page.
+**Tablet scales rather than reflows.** The tablet design is a fixed 1213px page.
 Below that width the whole page is scaled down in ~5% steps instead of being
-re-laid-out, so an iPad shows the design's own proportions — two cards per row, a
-101px card image. The cost is that everything is proportionally smaller on a
-narrow tablet: at 768px the scale is about 62%.
+re-laid-out, so an iPad shows the design's own proportions — five cards across, a
+202.6px card column. The cost is that everything is proportionally smaller on a
+narrow tablet: at 768px the scale is about 63%.
 
 **A few lines of copy are scripted.** Measured against the real Gilroy metrics,
 the second line of the floodlight and doorbell descriptions comes to ~203.8px

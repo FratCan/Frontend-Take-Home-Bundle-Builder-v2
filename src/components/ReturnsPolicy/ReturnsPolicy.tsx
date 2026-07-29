@@ -2,8 +2,9 @@ import { useBundleData } from '../../data/bundleContext'
 import styles from './ReturnsPolicy.module.css'
 
 /**
- * Desktop-only: the satisfaction badge paired with the returns guarantee copy.
- * Below 1280px the badge is rendered by SummaryBlock instead.
+ * Tablet-only: the satisfaction badge paired with the returns guarantee copy.
+ * The mobile and desktop columns are too narrow for it, so there SummaryBlock
+ * renders the badge on its own instead.
  */
 export function ReturnsPolicy() {
   const { heading, body, badge } = useBundleData().review.returns

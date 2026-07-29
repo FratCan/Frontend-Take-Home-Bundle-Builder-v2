@@ -86,14 +86,14 @@ export interface Product {
   priceDisplay?: PriceDisplay
   /** Appended to prices, e.g. "/mo". */
   priceSuffix?: string
-  /** Large card image used up to the desktop breakpoint. */
+  /** Card image for the horizontal card — mobile and desktop. */
   image: string
   /**
-   * Card image for >=1280px. The desktop design crops these differently — the
-   * tablet art is portrait, the desktop art landscape — so it is a separate
-   * file rather than the same asset at another size.
+   * Card image for the stood-up tablet card (768–1279px). That frame crops the
+   * art differently — portrait rather than landscape — so it is a separate file
+   * rather than the same asset at another size.
    */
-  desktopImage: string
+  tabletImage: string
   /** Small square image used for the review panel line. */
   reviewThumbnail: string
   /** Discount pill copy, e.g. "Save 22%". Absent when the product has none. */
@@ -119,34 +119,33 @@ export interface Product {
   /** Space between the card image and its text column, in px. Defaults to 13. */
   imageGap?: number
   /**
-   * Desktop-only card metrics, straight from `Frame 1736.txt`. `mediaHeight` is
-   * the image box the design gives this card; `paddingY` is its vertical card
-   * padding (the two bordered cards are roomier than the rest).
+   * Metrics for the stood-up tablet card, straight from `Frame 1736.txt`.
+   * `mediaHeight` is the image box the design gives this card; `paddingY` is its
+   * vertical card padding (the two bordered cards are roomier than the rest).
    */
-  desktopMediaHeight?: number
-  desktopPaddingY?: number
-  /** Desktop text-column height in px, from the design. */
-  desktopContentHeight?: number
+  cardMediaHeight?: number
+  cardPaddingY?: number
+  /** Text-column height in px on the tablet card, from the design. */
+  cardContentHeight?: number
   /**
-   * Desktop price-block width in px (Frame 577). The footer is 202.6px wide
-   * with an 80px stepper, so this width is what produces the export's footer
-   * gap — 10px on the two bordered cards, 46px on the rest — rather than the
-   * gap being set directly.
+   * Price-block width in px on the tablet card (Frame 577). The footer is
+   * 202.6px wide with an 80px stepper, so this width is what produces the
+   * export's footer gap — 10px on the two bordered cards, 46px on the rest —
+   * rather than the gap being set directly.
    */
-  desktopPriceWidth?: number
-  /** Desktop title size in px. Defaults to 18; the floodlight card uses 16. */
-  desktopTitleSize?: number
-  /** Desktop description size in px. Defaults to 14; one card uses 12. */
-  desktopDescriptionSize?: number
-  /** Desktop description weight. Defaults to 500 (Gilroy-Medium's look). */
-  desktopDescriptionWeight?: number
+  cardPriceWidth?: number
+  /** Tablet title size in px. Defaults to 18; the floodlight card uses 16. */
+  cardTitleSize?: number
+  /** Tablet description size in px. Defaults to 14; one card uses 12. */
+  cardDescriptionSize?: number
   /**
-   * Explicit desktop line breaks for the description. The design's wrap points
-   * come from Gilroy's metrics; with a substitute font they land elsewhere, so
-   * the cards that must match are spelled out line by line. Below the desktop
-   * breakpoint the breaks are suppressed and the text flows normally.
+   * Explicit line breaks for the description on the tablet card, whose column is
+   * only 202.6px wide. The design's wrap points come from Gilroy's metrics; with
+   * a substitute font they land elsewhere, so the cards that must match are
+   * spelled out line by line. Outside that range the breaks are suppressed and
+   * the text flows normally.
    */
-  desktopDescriptionLines?: string[]
+  scriptedDescriptionLines?: string[]
   /**
    * Forces "Learn More" onto its own line. In the design this is just where
    * the description happens to wrap in Gilroy; with a substitute font the
@@ -199,18 +198,18 @@ export interface Step {
   stepNumber: number
   title: string
   icon: string
-  /** Icon box at the desktop breakpoint — each step has its own in the design. */
-  desktopIconWidth?: number
-  desktopIconHeight?: number
+  /** Icon box on the tablet frame — each step has its own in the design. */
+  stepIconWidth?: number
+  stepIconHeight?: number
   /** Copy for the button that advances to the following step. */
   nextLabel?: string
   /** Step the button opens. */
   nextStepId?: string
   /**
    * Desktop wording and target for the same button. The two Figma files
-   * disagree — the tablet frame says "Next: Choose your plan", the desktop one
-   * "Next: Choose your sensors" — so each breakpoint keeps its own intent, and
-   * the button opens whichever step its label names.
+   * disagree — `Frame 1736` (tablet) says "Next: Choose your sensors",
+   * `Frame 1735` (desktop) says "Next: Choose your plan" — so each breakpoint
+   * keeps its own intent, and the button opens whichever step its label names.
    */
   desktopNextLabel?: string
   desktopNextStepId?: string

@@ -1,4 +1,8 @@
-/* Frame 543/544/545/546/547 — horizontal card: image left, content right. */
+/*
+ * Frame 543/544/545/546/547 — horizontal card: image left, content right. The
+ * mobile frames never expand a step, so this doubles as the mobile card; the
+ * desktop frame uses it as-is and the tablet frame stands it up (see below).
+ */
 .card {
   display: flex;
   flex-direction: row;
@@ -133,8 +137,11 @@
   white-space: nowrap;
 }
 
-/* Suppressed below the desktop breakpoint so the copy flows as one paragraph. */
-.desktopBreak {
+/*
+ * Scripted line breaks only apply where the design calls for them; elsewhere
+ * the copy flows as one paragraph.
+ */
+.scriptedBreak {
   display: none;
 }
 
@@ -161,11 +168,10 @@
 /*
  * Card prices use their own palette: struck-through in red, active in grey.
  * The review panel uses grey/purple instead — do not merge these.
- */
-/*
- * Prices never wrap: the design's footer is exactly 80px stepper + 10px gap +
- * 112.6px price block, so a substitute font one or two pixels wider would
- * otherwise push the amounts onto a second line and break the row.
+ *
+ * They never wrap: the design's footer is exactly 80px stepper + 10px gap +
+ * a fixed price box, so a font a pixel or two wider would otherwise push the
+ * amounts onto a second line and break the row.
  */
 .comparePrice {
   font-family: var(--font-regular);
@@ -192,8 +198,8 @@
   flex: none;
 }
 
-/* ── Desktop: the card turns vertical — image on top, text below ─────────── */
-@media (min-width: 1280px) {
+/* ── Tablet: the card stands up — image on top, text below ───────────────── */
+@media (min-width: 768px) {
   /*
    * min-height, not height: the design's 331.1px assumes Gilroy's line counts.
    * A fixed height makes any extra line spill out of the card, so the box grows
@@ -203,14 +209,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: var(--desktop-padding-y, 11px) 11px;
+    padding: var(--card-padding-y, 11px) 11px;
     min-height: 331.1px;
   }
 
   /* Image box height is per-card design data; the art is centred inside it. */
   .media {
     width: 100%;
-    height: var(--desktop-media-height);
+    height: var(--card-media-height);
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -235,8 +241,13 @@
    * Frame 577: the two prices sit side by side, in a box whose width is fixed
    * by the design. That width is what makes the footer gap come out at the
    * export's 10px / 46px — the gap itself is a result, not a setting.
-   * The block is right-aligned, so wider substitute-font text grows leftwards
-   * into the empty middle rather than pushing the stepper.
+   * The block is right-aligned, so wider text grows leftwards into the empty
+   * middle rather than pushing the stepper.
+   *
+   * Both the stepper and this block stretch to the footer's 28px and centre
+   * their contents (L797 / L966). Without the stretch the prices sit on the
+   * footer's baseline while the stepper centres its 20px buttons, leaving the
+   * two visibly off by the stepper's 4px padding.
    */
   .priceBlock {
     flex-direction: row;
@@ -245,13 +256,7 @@
     align-items: center;
     gap: 3px;
     flex: none;
-    width: var(--desktop-price-width);
-    /*
-     * Both the stepper and this block stretch to the footer's 28px and centre
-     * their contents (L797 / L966). Without the stretch the prices sit on the
-     * footer's baseline while the stepper centres its 20px buttons, leaving
-     * the two visibly off by the stepper's 4px padding.
-     */
+    width: var(--card-price-width);
     align-self: stretch;
   }
 
@@ -278,25 +283,25 @@
   /*
    * The text column has a design height per card (Frame 547/549/550).
    * min-height rather than height: the box is never smaller than the design
-   * says, but a substitute font that needs one extra line grows instead of
-   * clipping.
+   * says, but a font that needs one extra line grows instead of clipping.
    */
   .content {
     width: 100%;
-    min-height: var(--desktop-content-height);
+    flex: none;
+    min-height: var(--card-content-height);
   }
 
   /* Only the sizes change here; the faces are set by the base rules. */
   .title {
-    font-size: var(--desktop-title-size, 18px);
+    font-size: var(--card-title-size, 18px);
   }
 
   .description {
-    font-size: var(--desktop-description-size, 14px);
+    font-size: var(--card-description-size, 14px);
   }
 
-  /* Only breaks at desktop — see Product.desktopDescriptionLines. */
-  .desktopBreak {
+  /* Only breaks here — see Product.scriptedDescriptionLines. */
+  .scriptedBreak {
     display: inline;
   }
 
@@ -309,5 +314,73 @@
    */
   .forcedLine {
     white-space: nowrap;
+  }
+}
+
+/* ── Desktop: back on its side, two cards to a row ───────────────────────── */
+@media (min-width: 1280px) {
+  .card {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 11px;
+    min-height: 0;
+  }
+
+  .media {
+    width: auto;
+    height: auto;
+    display: block;
+    overflow: visible;
+  }
+
+  .image {
+    width: 101px;
+    height: auto;
+    max-height: none;
+    object-fit: fill;
+  }
+
+  .content {
+    width: auto;
+    flex: 1;
+    min-height: 0;
+  }
+
+  .footer {
+    height: auto;
+  }
+
+  /*
+   * The stepper stretches to the footer band and centres its 20px buttons, so a
+   * price block shorter than that band — the single-price cards, Duo Cam
+   * Doorbell and Battery Cam Pro — would sit ~6px low against `flex-end`.
+   * Centring it puts the amount on the stepper's line. On the two-price cards
+   * the block is the taller item, so this changes nothing there.
+   */
+  .priceBlock {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    width: auto;
+    align-self: center;
+    flex: initial;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .description {
+    font-size: 12px;
+  }
+
+  /* The card is wide again, so the copy wraps on its own. */
+  .scriptedBreak {
+    display: none;
+  }
+
+  .forcedLine {
+    white-space: normal;
   }
 }

@@ -29,7 +29,7 @@ export function ReviewPanel({
       </div>
 
       <div className={styles.card}>
-        {/* Frame 4499 (L3941): one column below desktop, two columns at >=1280px. */}
+        {/* Frame 4499 (L3941): two columns across the tablet frame, one elsewhere. */}
         <div className={styles.columns}>
           <div className={styles.itemsColumn}>
             <div className={styles.headerBlock}>

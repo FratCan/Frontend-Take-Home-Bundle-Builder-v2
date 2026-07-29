@@ -1,13 +1,13 @@
 /*
  * Frame 4500 (L6388) — the satisfaction badge beside the returns copy. This
- * block only exists in the desktop design; mobile and tablet show the badge
- * alone, so the wrapper stays display:none below the desktop breakpoint.
+ * block only exists in the stacked frame; mobile and desktop show the badge
+ * alone, so the wrapper is hidden outside the tablet range.
  */
 .block {
   display: none;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 768px) {
   .block {
     display: flex;
     flex-direction: row;
@@ -43,5 +43,12 @@
     margin-top: 8px;
     font-family: var(--font-medium);
     font-weight: 400;
+  }
+}
+
+/* The narrow desktop column has no room for it — the badge goes back alone. */
+@media (min-width: 1280px) {
+  .block {
+    display: none;
   }
 }
