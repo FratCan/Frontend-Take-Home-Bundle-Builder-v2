@@ -44,7 +44,7 @@ catalogue is hardcoded in components.
 page      page-level copy and templates
 steps     the four accordion steps: title, icon, next-button wording and target
 products  cards, with per-colour variants and their quantities
-extras    review lines that have no card of their own yet
+extras    review lines with no card of their own (currently empty)
 shipping  the shipping row
 review    panel headings, category order, returns copy, CTA labels, financing
 ```
@@ -151,14 +151,10 @@ differently from the static figure in the design.
 
 ## Not done
 
-- **Step 4, "Add extra protection", has no products.** Only step 1 is detailed in
-  the design files; nothing was supplied for this step, so it renders an empty
-  state.
-- **The MicroSD card is a review line with no product card.** It matches the
-  brief's note about pre-populated items with no add-control, but it means that
-  one item can only be adjusted from the review panel.
-- **Steps 2 and 3 are inferred.** Their cards were built from the review-panel
-  data rather than a design, since the Figma files only expand step 1.
+- **Steps 2, 3 and 4 are inferred.** Only step 1 is expanded in the Figma files,
+  so the cards for the plan, the sensors and the MicroSD card were built from the
+  review-panel data rather than from a design. They reuse the step-1 card with no
+  description, because none is supplied for them.
 - **Grey and black variant thumbnails are softer than the rest.** The only art
   supplied for those colours embeds a 48×48 bitmap; beside the 1100×1100 white
   thumbnail the difference shows on a high-DPI screen.

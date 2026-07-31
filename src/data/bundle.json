@@ -318,22 +318,32 @@
       "cardMediaHeight": 101,
       "cardContentHeight": 136,
       "cardPriceWidth": 112.6
-    }
-  ],
-  "extras": [
+    },
     {
       "id": "wyze-microsd-card",
+      "stepId": "extra-protection",
       "category": "Accessories",
-      "layout": "product",
       "name": "Wyze MicroSD Card (256GB)",
       "image": "/mobil-ui/Black 256GB microSD card with the Wyze logo on it. Includes Class 10 and UHS-3 (U3) labelling.svg",
-      "quantity": 2,
+      "tabletImage": "/mobil-ui/Black 256GB microSD card with the Wyze logo on it. Includes Class 10 and UHS-3 (U3) labelling.svg",
+      "reviewThumbnail": "/mobil-ui/Black 256GB microSD card with the Wyze logo on it. Includes Class 10 and UHS-3 (U3) labelling.svg",
       "compareAtPrice": null,
       "price": 20.98,
-      "priceDisplay": "flat",
-      "locked": false
+      "variants": [
+        {
+          "id": "default",
+          "label": null,
+          "labelWidth": null,
+          "swatch": null,
+          "quantity": 2
+        }
+      ],
+      "cardMediaHeight": 101,
+      "cardContentHeight": 136,
+      "cardPriceWidth": 112.6
     }
   ],
+  "extras": [],
   "shipping": {
     "label": "Fast Shipping",
     "icon": "/mobil-ui/Wyze Sense Keypad.svg",
